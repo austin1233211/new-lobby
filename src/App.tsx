@@ -524,7 +524,7 @@ function GameView({ selectedGame, games }) {
       <Card className="h-[380px] w-full overflow-hidden">
         <FruitMatchGame 
           playerName="Player1" 
-          onGameEnd={() => console.log('Game ended')}
+          points={100}
         />
       </Card>
     );
