@@ -564,7 +564,9 @@ function SettingsModal({ open, onClose }) {
   useEffect(() => {
     try {
       document.documentElement.classList.toggle("dark", dark);
-    } catch {}
+    } catch (error) {
+      console.warn("Failed to toggle dark mode:", error);
+    }
   }, [dark]);
 
   const handleSave = () => {
@@ -671,7 +673,7 @@ function SettingsModal({ open, onClose }) {
                     min={0}
                     max={100}
                     value={value as number}
-                    onChange={(e) => (setter as any)(Number(e.target.value))}
+                    onChange={(e) => (setter as (value: number) => void)(Number(e.target.value))}
                     className="w-full accent-blue-500"
                   />
                   <div className="w-8 text-right text-zinc-400">{value as number}</div>
